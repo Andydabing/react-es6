@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 export default class Component7 extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            words: 'hello'
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         words: 'hello'
+    //     }
+    // }
     stateFn = (e) => {
         this.setState({ words: e.target.value })
+    }
+    state = {
+        words: 'hello'
     }
     render() {
         let word = this.state.words
