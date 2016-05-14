@@ -47,14 +47,15 @@ var Photo = React.createClass({
   handleDoubleTap: function(e) { … },
   render: function() { … },
 });
-
 // The ES6+ way
 class Photo extends React.Component {
   handleDoubleTap(e) { … }
   render() { … }
 }
 ```
+
 > 使用`static`关键字完成属性初始化工作（这是es7的内容，注意`state`可以直接通过`state = { key: value }`来定义）
+
 ```
 // The ES5 way
 var Video = React.createClass({
@@ -76,7 +77,6 @@ var Video = React.createClass({
     videoSrc: React.PropTypes.string.isRequired,
   },
 });
-
 // The ES6+ way
 class Video extends React.Component {
   static defaultProps = {
@@ -94,7 +94,9 @@ class Video extends React.Component {
   }
 }
 ```
+
 > 在`constractor`中定义`state`
+
 ```
 // The ES5 way
 var Video = React.createClass({
@@ -104,7 +106,6 @@ var Video = React.createClass({
     };
   }
 });
-
 //The ES6 way
 class Video extends React.Component {
     constructor(props) {
@@ -122,7 +123,6 @@ class Video extends React.Component {
 我们总共有7个小的demo，我把它们作为不同的组件，最终加载到根组件中：
 ```
 // app.js
-
 import React, { Component } from 'react'
 import Component1 from './demo1.js'
 import Component2 from './demo2.js'
@@ -131,7 +131,6 @@ import Component4 from './demo4.js'
 import Component5 from './demo5.js'
 import Component6 from './demo6.js'
 import Component7 from './demo7.js'
-
 export default class Demo extends Component {
   render() {
     return (
@@ -151,14 +150,15 @@ export default class Demo extends Component {
   }
 }
 ```
+
 具体请进入[我的项目][4]查看代码。
 
 可以看到，通过es6的改写，在react中实现组件化是非常清晰简单的，只需要把需要的组件import进来即可。
 
 另外，由于我非常讨厌行内样式，并且是不写less会死星人，所以并没有按照官方推荐的样子去定义一个`style object`，而是通过`less-loader`在需要定义样式的地方直接把样式require进来，像这样：
+
 ```
 // demo7.js
-
 render() {
     let word = this.state.words
     require('../less/test.less')
